@@ -19,7 +19,6 @@ void bitonicSortPar(vector<int>& seq, int start, int length, bool up)
 
     split_length = length / 2;
 
-    // bitonic split
 #pragma omp parallel for shared(seq, up, start, split_length) private(i)
     for (i = start; i < start + split_length; i++)
     {
@@ -37,7 +36,6 @@ void bitonicSortPar(vector<int>& seq, int start, int length, bool up)
 
     if (split_length > m)
     {
-        // m is the size of sub part-> n/numThreads
         bitonicSortPar(seq, start, split_length, up);
         bitonicSortPar(seq, start + split_length, split_length, up);
     }
@@ -84,8 +82,9 @@ void printArray(const vector<int>& arr) {
 int main() {
     setlocale(LC_ALL, "ru");
     int n;
-    std::cout << "              (              ): ";
+    std::cout << "Длина массива (степень двойки): ";
     cin >> n;
+	n = pow(2, n);
     vector<int> arr(n);
 
     random_device rd;
@@ -95,7 +94,7 @@ int main() {
         arr[i] = dis(gen);
     }
 
-    std::cout << "                              " << n << endl;
+    std::cout << "Сгенерированный массив длиной " << n << endl;
     printArray(arr);
 
     int numThreads = 2; //omp_get_max_threads();
@@ -133,10 +132,10 @@ int main() {
 
     auto duration = chrono::duration_cast<chrono::microseconds>(chrono::high_resolution_clock::now() - start);
 
-    std::cout << "                       " << endl;
+    std::cout << "Отсортированный массив " << endl;
     printArray(arr);
 
-    std::cout << "                 : " << duration.count() << "            " << endl;
+    std::cout << "Затраченное время: " << duration.count() << " микросекунд" << endl;
 
     return 0;
 }
