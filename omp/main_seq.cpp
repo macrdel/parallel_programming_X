@@ -1,4 +1,4 @@
-#include <iostream>
+п»ї#include <iostream>
 #include <vector>
 #include <algorithm>
 #include <chrono>
@@ -54,6 +54,7 @@ int main() {
     size_t n;
     std::cout << "Длина массива (степень двойки): ";
     cin >> n;
+	n = pow(2, n);
     vector<int> arr(n);
 
     random_device rd;
