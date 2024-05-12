@@ -1,0 +1,56 @@
+Scheme ArrayBitonicSort
+{
+    N = ([1]).pow2;
+	Array = ([1]*([1] * 0).arrayCreate).GenArray(Gen);
+	@ = ([2] * 1).equal -> N.([1]*[1].Array).([2].print * " -> ".print * bitonicSort.print), 
+								N.([1]*[1].Array).bitonicSort;
+	Gen = ([2]*[1]*(rand*100).mul.toInt).arraySet;
+	Fun pow2
+	{
+		@ = ([1] * 0).equal -> 1, ((([1] * 1).sub).pow2 * 2).mul;
+	}
+    Fun GenArray[F]
+    {
+        N = [1];
+        Arr = [2];
+        @ = (N * Arr * 0).Recurse.[1];
+        Recurse = ([3]*N).equal -> Arr*Arr,
+        						(N*([3]*Arr).F*([3]*1).add).Recurse;
+    }
+    Fun bitonicSort
+    {   
+        N = [1];
+        Arr = [2];
+        @ = (Arr * 0 * N * 1).bitonicSortRecursive(bitonicConnect);
+        Fun bitonicSortRecursive[F]
+        {
+            Arr = [1];
+			LO = [2];
+			N = [3];
+			UP = [4];
+            M = (N * 2).div;
+            @ = (N * 2).less -> Arr,
+			    (((((Arr * LO * M * 1).@) * (LO * M).add * M * 0).@) * LO * N * UP).F;
+        }
+        Fun bitonicConnect
+        {
+            Arr = [1];
+			LO = [2];
+			N = [3];
+			UP = [4];
+			M = (N * 2).div;
+			@ = (N * 2).less -> Arr,
+				(((((Arr * LO * (LO * M).add * M * UP).loop) * LO * M * UP).@) * (LO * M).add * M * UP).@;
+
+			loop = ([2] * [3]).less -> [1], 
+					(([1] * [2] * ([2] * [4]).add * [5]).compare * ([2] * 1).add * [3] * [4] * [5]).loop;
+
+			compare = ((([4] * 1).equal * (([1] * [2]).arrayGet * ([1] * [3]).arrayGet).greater).and * (([4] * 0).equal * (([1] * [2]).arrayGet * ([1] * [3]).arrayGet).less).and).or -> ([1] * [2] * [3]).swap, [1];
+
+			swap = ((1 * ([1] * [2]).arrayGet).arrayCreate * ([1] * [2] * ([1] * [3]).arrayGet).arraySet * [3]).swap_;
+			swap_ = ([2] * [3] * ([1] * 0).arrayGet).arraySet;
+		}
+ 	} 
+}
+Application
+% ArrayBitonicSort(3, 2)

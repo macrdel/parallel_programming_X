@@ -52,7 +52,7 @@ void printArray(const vector<int>& arr) {
 int main() {
     setlocale(LC_ALL, "ru");
     size_t n;
-    std::cout << "Длина массива (степень двойки): ";
+    std::cout << "пїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅпїЅпїЅ (пїЅпїЅпїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅпїЅ): ";
     cin >> n;
 	n = pow(2, n);
     vector<int> arr(n);
@@ -64,7 +64,7 @@ int main() {
         arr[i] = dis(gen);
     }
 
-    std::cout << "Сгенерированный массив длиной " << n << endl;
+    std::cout << "пїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅпїЅ " << n << endl;
     printArray(arr);
 
     auto start = chrono::high_resolution_clock::now();
@@ -73,10 +73,10 @@ int main() {
 
     auto duration = chrono::duration_cast<chrono::microseconds>(chrono::high_resolution_clock::now() - start);
 
-    std::cout << "Отсортированный массив " << endl;
+    std::cout << "пїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅпїЅ " << endl;
     printArray(arr);
 
-    std::cout << "Затраченное время: " << duration.count() << " микросекунд" << endl;
+    std::cout << "пїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅ: " << duration.count() << " пїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ" << endl;
 
     return 0;
 }
