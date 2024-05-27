@@ -1,4 +1,4 @@
--module(bitonicSort_).
+-module(bitonicSort).
 -export([main/0, main/3]).
 
 % генерация массива, запуск сортировки, замер времени и вывод результата.
